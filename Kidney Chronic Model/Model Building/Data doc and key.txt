@@ -1,0 +1,46 @@
+1) ZqQbphtCRWA7WwhX0Sm9lsH6UqodAez5aDZSvpfveOpn
+
+2) space UID =742bf443-9934-49ae-8004-8d38506e83ab
+
+3) spec id: ab9e1b80-f2ce-592c-a7d2-4f2344f77194
+
+4) xIx4WooTljHabgs60j47x0pWnPs_Z3Y2K4Z8PkdW7__S
+
+
+---- This shows the data imported in the 
+
+
+import os, types
+import pandas as pd
+from botocore.client import Config
+import ibm_boto3
+
+def __iter__(self): return 0
+
+# @hidden_cell
+# The following code accesses a file in your IBM Cloud Object Storage. It includes your credentials.
+# You might want to remove those credentials before you share the notebook.
+cos_client = ibm_boto3.client(service_name='s3',
+    ibm_api_key_id='ecUw9X5mDPxYBGT9IMcGdcMYHWEgM98EsATThzgBCcZd',
+    ibm_auth_endpoint="https://iam.cloud.ibm.com/oidc/token",
+    config=Config(signature_version='oauth'),
+    endpoint_url='https://s3.private.us.cloud-object-storage.appdomain.cloud')
+
+bucket = 'chronickidneyprediction-donotdelete-pr-ffees6l2qi661n'
+object_key = 'chronickidney_disease.csv'
+
+body = cos_client.get_object(Bucket=bucket,Key=object_key)['Body']
+# add missing __iter__ method, so pandas accepts body as file-like object
+if not hasattr(body, "__iter__"): body.__iter__ = types.MethodType( __iter__, body )
+
+data = pd.read_csv(body)
+data.head()
+
+
+
+
+
+
+
+
+
