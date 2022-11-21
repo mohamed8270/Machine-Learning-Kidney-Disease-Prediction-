@@ -10,7 +10,7 @@
 
 #### The process consiste of building a model and deploy it on IBM Watson machine learning platform, Further creating a web application for interraction and input of user medical parameters such as diabetesmellitus, coroary disease, red blood cells etc to predict the chronic kidney disease. The UI is created using flutter. API is ensured to connect web application and IBM watson machine learning platform where our model is deployed and the data are uploaded into cloud storage in IBM storage fecility 
 
-Other Contents
+## Other Contents
 
 [LinkedIn](https://www.linkedin.com/in/mohamed-ibrahim-8801591aa/)
 
